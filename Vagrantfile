@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
     vb.name = "vagrant-postgis"
     vb.memory = "2048"
     vb.cpus = 2
-    override.vm.box = "ubuntu/zesty64"
+    override.vm.box = "ubuntu/bionic64"
     override.vm.network :forwarded_port, host: 6543, guest: 5432
     override.vm.network "private_network", type: "dhcp"
   end
