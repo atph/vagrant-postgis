@@ -18,14 +18,14 @@ sudo apt-get -y -q install \
   postgresql \
   postgresql-contrib
 # Post-installation
-echo "PostgreSQL: updating /etc/postgresql/9.6/main/postgresql.conf"
-sudo cp /etc/postgresql/9.6/main/postgresql.conf /etc/postgresql/9.6/main/postgresql.conf.original
-sudo sed -i "s/#listen_address.*/listen_addresses = '*'/" /etc/postgresql/9.6/main/postgresql.conf
+echo "PostgreSQL: updating /etc/postgresql/10/main/postgresql.conf"
+sudo cp /etc/postgresql/10/main/postgresql.conf /etc/postgresql/10/main/postgresql.conf.original
+sudo sed -i "s/#listen_address.*/listen_addresses = '*'/" /etc/postgresql/10/main/postgresql.conf
 echo "Enabled listen_addresses = '*'"
-echo "PostgreSQL: updating /etc/postgresql/9.6/main/pg_hba.conf"
-sudo cp /etc/postgresql/9.6/main/pg_hba.conf /etc/postgresql/9.6/main/pg_hba.conf.original
-sudo sed -i "s/peer$/trust/" /etc/postgresql/9.6/main/pg_hba.conf
-sudo sh -c 'cat >> /etc/postgresql/9.6/main/pg_hba.conf <<EOF
+echo "PostgreSQL: updating /etc/postgresql/10/main/pg_hba.conf"
+sudo cp /etc/postgresql/10/main/pg_hba.conf /etc/postgresql/10/main/pg_hba.conf.original
+sudo sed -i "s/peer$/trust/" /etc/postgresql/10/main/pg_hba.conf
+sudo sh -c 'cat >> /etc/postgresql/10/main/pg_hba.conf <<EOF
 # Accept all IPv4 connections - NOT FOR PRODUCTION
 host    all         all         0.0.0.0/0             md5
 EOF'
